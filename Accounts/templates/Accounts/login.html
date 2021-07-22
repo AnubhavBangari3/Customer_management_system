@@ -1,0 +1,50 @@
+{% load static %}
+<!<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>LOGIN</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{% static 'Accounts/login.css' %}">
+</head>
+
+<body>
+    <nav>
+        <div class="logo">
+            <h1>CRM</h2>
+
+
+        </div>
+    </nav>
+    <main>
+        <h1>SIGN IN</h1>
+
+
+        <br>
+        <br>
+        <form method="post" action="{% url 'home' %}">
+            {% csrf_token %}
+            <div class="name">
+                <input type="text" name="username" placeholder="name" id="name">
+            </div>
+            <br>
+            <div class="password">
+                <input type="password" name="password" placeholder="Password" id="password">
+            </div>
+            <h4>Forget Password ?</h4>
+            <button class="sign">
+                Sign In
+            </button>
+            <h4><a href="{% url 'register' %}">Please click here to register.</a></h4>
+        </form>
+
+    </main>
+
+
+</body>
+
+</html>

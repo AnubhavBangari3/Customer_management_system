@@ -1,0 +1,57 @@
+* {
+    box-sizing: border-box;
+}
+
+.container {
+    display: flex;
+    width: 100%;
+    height: auto;
+}
+
+.card:nth-child(1) {
+    padding: 10px 5px 10px 0;
+    width: 30%;
+    margin-right: 10px;
+    margin-top: 30px;
+}
+
+.card:nth-child(2) {
+    margin-top: 30px;
+    width: 70%;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.col .card {
+    width: 300px;
+}
+
+.upper {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.upper .card {
+    width: 30%;
+    margin-top: 20px;
+}
+
+.middle {
+    margin: 10px 0 20px 65px;
+}
+
+.lower {
+    width: 100%;
+    height: auto;
+}
+
+.lower .card {
+    width: 100%;
+    height: auto;
+}

@@ -1,0 +1,23 @@
+<style>
+    .card {
+        margin: 100 auto;
+        width: 400px;
+    }
+    
+    form {
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        flex-direction: column;
+    }
+</style>
+
+<div class="card">
+    <div class="card-body">
+        <form method='post' action=''>
+            {% csrf_token %} {{form.username.label}} {{form.username}}<br> {{form.email.label}} {{form.email}} <br>{{form.password1.label}} {{form.password1}}<br> {{form.password2.label}} {{form.password2}}
+            <br><br>
+            <button type="submit">Create Customer</button>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,105 @@
+{% extends 'Accounts/base.html' %} {% block title %}Dashboard {% endblock %} {% block body %}
+<header>
+    <div class="row align-items-start" style="background-color: purple;">
+        <div class="col">
+            <div class="card">
+                <div class="card-body">
+                    <h2>Total Orders</h2>
+
+                    <hr> {% if total_order %} {{total_order}} {% else %} None {% endif %}
+                </div>
+            </div>
+
+
+        </div>
+        <div class="col">
+            <div class="card">
+                <div class="card-body">
+                    <h2>Orders Delivered</h2>
+                    <hr> {% if delivered %}{{delivered}}{% else %} Pending {% endif %}
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card">
+                <div class="card-body">
+                    <h2>Order Pending</h2>
+                    <hr> {{pending}}
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</header>
+
+<div class="container">
+
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Customers</h5>
+            
+
+            <table class="table table-sm">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th scope="col">Customer</th>
+                        <th scope="col">Phone</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for customer in customers %}
+                    <tr>
+                        <td>
+                            <a href="{% url 'customer' customer.pk %}">View</a>
+                        </td>
+                        <td>{{customer.name}}</td>
+                        <td>{{customer.phone}}</td>
+
+                    </tr>
+                    {% endfor %}
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Last 5 Orders</h5>
+            <hr>
+
+            <table class="table table-sm">
+                <thead>
+                    <tr>
+
+                        <th scope="col">Product</th>
+                        <th scope="col">Date Ordered</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Update</th>
+                        <th scope="col">Removed</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for order in orders %}
+                    <tr>
+                        <td>{{order.product}}</td>
+
+                        <td>{{order.added}}</td>
+                        <td>{{order.status}}</td>
+                        <td><a href="{% url 'update_order' order.pk %}" class="update-order btn-info">Update</a></td>
+                        <td><a href="{% url 'delete_order' order.pk %}" class="update-order btn-danger">Delete</a></td>
+
+                    </tr>
+                    {% endfor %}
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}
